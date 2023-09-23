@@ -198,7 +198,7 @@ impl PosixSpawner {
             check_fail(unsafe {
                 libc::posix_spawn(
                     &mut pid,
-                    interp.as_ptr(),
+                    interp.as_ptr() as _,
                     &self.actions.0,
                     &self.attr.0,
                     argv2.as_ptr(),
